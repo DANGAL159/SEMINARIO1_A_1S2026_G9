@@ -71,6 +71,7 @@ const loginUser = async (req, res) => {
         });
     } catch (error) {
         console.error("Login Error Cognito:", error);
+        console.error("Login Error Cognito DETALLE:", error.name, error.message);
         res.status(401).json({ error: 'Credenciales inválidas' });
     }
 };
@@ -89,7 +90,8 @@ const loginFacial = async (req, res) => {
         const usuario = rows[0];
 
         // 2. Extraer solo el nombre del archivo del S3 url (ej: de https://bucket.../foto.jpg a foto.jpg)
-        const s3Key = usuario.foto_perfil_url.split('/').pop();
+        const urlObj = new URL(usuario.foto_perfil_url);
+        const s3Key = decodeURIComponent(urlObj.pathname.substring(1));
         const bucketName = process.env.S3_BUCKET_NAME;
 
         // 3. Limpiar la cabecera del base64 que envía HTML5 y convertir a Buffer de Bytes
