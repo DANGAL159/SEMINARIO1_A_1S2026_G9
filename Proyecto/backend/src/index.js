@@ -7,8 +7,8 @@ require('dotenv').config();
 const db = require('./config/db');
 
 // Importar Controladores
-const { loginUser, updateProfile } = require('./controllers/userController');
-const { registerUser, loginFacial } = require('./controllers/authController');
+const { updateProfile } = require('./controllers/userController');
+const { registerUser, loginUser, loginFacial } = require('./controllers/authController');
 const { createPublication, getFeed, translateDescription, getAllTags } = require('./controllers/publicationController');
 const { addComment, getComments } = require('./controllers/commentController');
 const { sendFriendRequest, respondFriendRequest, getNonFriends, getPendingRequests, getFriends } = require('./controllers/friendController');
