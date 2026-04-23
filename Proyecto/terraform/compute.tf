@@ -32,6 +32,11 @@ resource "aws_iam_role_policy_attachment" "ec2_s3" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "ec2_cognito" {
+  role       = aws_iam_role.ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonCognitoPowerUser"
+}
+
 resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2_ai_profile_g9"
   role = aws_iam_role.ec2_role.name

@@ -38,7 +38,7 @@ export default function Login({ setUser }) {
         }
     };
 
-    const handleLoginFacial = async () => {
+const handleLoginFacial = async () => {
         if (!correo) return alert('Ingresa tu correo primero para buscar tu perfil.');
         setLoading(true);
 
@@ -48,10 +48,13 @@ export default function Login({ setUser }) {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         canvas.getContext('2d').drawImage(video, 0, 0);
-        const imageBase64 = canvas.toDataURL('image/jpeg');
+        
+        // 1. Cambiamos el nombre de la variable aquí a snake_case
+        const imagen_base64 = canvas.toDataURL('image/jpeg');
 
         try {
-            const { data } = await api.post('/auth/login-facial', { correo, imageBase64 });
+            // 2. Enviamos la variable con el nombre exacto que espera el backend
+            const { data } = await api.post('/auth/login-facial', { correo, imagen_base64 });
             detenerCamara();
             localStorage.setItem('user', JSON.stringify(data.user));
             setUser(data.user);
