@@ -7,24 +7,30 @@ const rekognition = new RekognitionClient({ region: "us-east-1" });
 const translate = new TranslateClient({ region: "us-east-1" });
 
 const createPublication = async (req, res) => {
-    const { id_usuario, imagen_url, descripcion, s3_filename } = req.body;
+    // Ya no dependemos del s3_filename que manda el frontend, usamos la URL real
+    const { id_usuario, imagen_url, descripcion } = req.body; 
+    
     try {
         // 1. Guardar publicación en BD
         const pubQuery = 'INSERT INTO publicaciones (id_usuario, imagen_url, descripcion) VALUES ($1, $2, $3) RETURNING id';
         const pubResult = await db.query(pubQuery, [id_usuario, imagen_url, descripcion]);
         const id_publicacion = pubResult.rows[0].id;
 
-        // 2. Analizar imagen con Rekognition
-        const bucketName = process.env.S3_BUCKET_NAME || 'semi1proyecto-g9-202203361';
+        // 2. Extraer el S3 Key real directo de la URL (Ej: "Fotos_Publicadas/foto123.jpg")
+        const urlObj = new URL(imagen_url);
+        const s3KeyReal = decodeURIComponent(urlObj.pathname.substring(1));
+        const bucketName = process.env.S3_BUCKET_NAME;
+
+        // 3. Analizar imagen con Rekognition
         const params = {
-            Image: { S3Object: { Bucket: bucketName, Name: s3_filename } },
+            Image: { S3Object: { Bucket: bucketName, Name: s3KeyReal } },
             MaxLabels: 5,
             MinConfidence: 75
         };
         const command = new DetectLabelsCommand(params);
         const response = await rekognition.send(command);
 
-        // 3. Guardar etiquetas en la BD
+        // 4. Guardar etiquetas en la BD
         for (const label of response.Labels) {
             const tagName = label.Name;
             // Insertar etiqueta si no existe
