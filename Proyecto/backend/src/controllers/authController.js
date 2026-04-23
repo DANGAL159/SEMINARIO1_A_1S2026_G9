@@ -34,10 +34,10 @@ const registerUser = async (req, res) => {
         });
         await cognito.send(confirmCommand);
 
-        // 4. Guardamos en BD. ¡Nota que ya NO enviamos la contraseña!
-        const query = 'INSERT INTO usuarios (correo, nombre_completo, dpi, foto_perfil_url, cognito_sub) VALUES ($1, $2, $3, $4, $5) RETURNING id, correo, nombre_completo, foto_perfil_url';
-        const { rows } = await db.query(query, [correo, nombre_completo, dpi, foto_perfil_url, cognitoSub]);
-        
+        // 4. Guardamos en BD. Enviamos un texto genérico para satisfacer el NOT NULL de tu tabla.
+        const query = 'INSERT INTO usuarios (correo, contrasena, nombre_completo, dpi, foto_perfil_url, cognito_sub) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, correo, nombre_completo, foto_perfil_url';
+        const { rows } = await db.query(query, [correo, '[PROTEGIDA_POR_COGNITO]', nombre_completo, dpi, foto_perfil_url, cognitoSub]);
+
         res.status(201).json({ message: 'Usuario registrado exitosamente', user: rows[0] });
     } catch (error) {
         console.error("Error en Registro:", error);
