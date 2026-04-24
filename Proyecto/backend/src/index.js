@@ -34,20 +34,10 @@ io.on('connection', (socket) => {
         socket.join(room);
     });
 
-    // Notificar que alguien está escribiendo
+    // Notificar si alguien escribe o se detiene
     socket.on('typing', (data) => {
-        socket.to(data.room).emit('user_typing', { 
-            username: data.username, 
-            isTyping: true 
-        });
-    });
-
-    // Notificar que se detuvo
-    socket.on('stop_typing', (data) => {
-        socket.to(data.room).emit('user_typing', { 
-            username: data.username, 
-            isTyping: false 
-        });
+        // Reenviamos el paquete EXACTO que nos manda el frontend (con room e isTyping)
+        socket.to(data.room).emit('user_typing', data); 
     });
 
     // Recibir, GUARDAR y retransmitir mensaje

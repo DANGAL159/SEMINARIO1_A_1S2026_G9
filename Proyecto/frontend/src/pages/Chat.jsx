@@ -38,6 +38,8 @@ export default function Chat({ user }) {
 
         // 3. Listener para el indicador de escritura
         socket.on('user_typing', (data) => {
+            console.log(`[RECEPTOR] Recibido evento typing de:`, data.username, `Estado:`, data.isTyping);
+
             if (amigoActivo) {
                 const room = `sala_${[user.id, amigoActivo.id].sort().join('_')}`;
                 if (data.room === room && data.username !== user.nombre_completo) {
@@ -85,6 +87,8 @@ export default function Chat({ user }) {
     const manejarEscritura = () => {
         if (!amigoActivo) return;
         const room = `sala_${[user.id, amigoActivo.id].sort().join('_')}`;
+
+        console.log(`[EMISOR] Enviando 'typing' a ${room}...`);
         
         // Avisar que estamos escribiendo
         socket.emit('typing', { 
