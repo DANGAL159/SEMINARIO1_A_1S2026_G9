@@ -114,7 +114,7 @@ Se definieron los siguientes usuarios y roles en **AWS IAM** para garantizar seg
                                         │
                 ┌───────────────────────┴───────────────────────┐
                 │                                               │
-                ▼                                                 ▼  
+                ▼                                               ▼  
    ┌───────────────────────────┐                 ┌───────────────────────────┐  
    │         EC2 #1            │                 │         EC2 #2            │  
    │  (Backend Node.js/Python) │                 │  (Backend Node.js/Python) │  
