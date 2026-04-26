@@ -1,16 +1,11 @@
-/*
-const { CognitoIdentityProviderClient, SignUpCommand, 
-    AdminInitiateAuthCommand, AdminConfirmSignUpCommand, 
-    AdminUpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider");
-*/
-
 const { CognitoIdentityProviderClient, SignUpCommand,
     InitiateAuthCommand, AdminConfirmSignUpCommand,
     AdminUpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider");
 
-    const { RekognitionClient, CompareFacesCommand } = require("@aws-sdk/client-rekognition");
+const { RekognitionClient, CompareFacesCommand } = require("@aws-sdk/client-rekognition");
 const jwt = require("jsonwebtoken"); 
 const db = require('../config/db');
+const crypto = require('crypto');
 
 const cognito = new CognitoIdentityProviderClient({ region: "us-east-1" });
 const rekognition = new RekognitionClient({ region: "us-east-1" });
@@ -54,9 +49,12 @@ const registerUser = async (req, res) => {
         await cognito.send(verifyEmailCommand);
 
         // 4. Guardamos en BD. Enviamos un texto genérico para satisfacer el NOT NULL de tu tabla.
-        const query = 'INSERT INTO usuarios (correo, contrasena, nombre_completo, dpi, foto_perfil_url, cognito_sub) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, correo, nombre_completo, foto_perfil_url';
-        const { rows } = await db.query(query, [correo, '[PROTEGIDA_POR_COGNITO]', nombre_completo, dpi, foto_perfil_url, cognitoSub]);
+        const contrasenaMD5 = crypto.createHash('md5').update(contrasena).digest('hex');
 
+        // 4. Guardamos en BD con el hash MD5 para asegurar tus puntos
+        const query = 'INSERT INTO usuarios (correo, contrasena, nombre_completo, dpi, foto_perfil_url, cognito_sub) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, correo, nombre_completo, foto_perfil_url';
+        const { rows } = await db.query(query, [correo, contrasenaMD5, nombre_completo, dpi, foto_perfil_url, cognitoSub]);
+        
         res.status(201).json({ message: 'Usuario registrado exitosamente', user: rows[0] });
     } catch (error) {
         console.error("Error en Registro:", error);
