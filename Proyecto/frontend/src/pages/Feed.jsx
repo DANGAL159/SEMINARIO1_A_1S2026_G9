@@ -1,3 +1,4 @@
+// frontend/src/pages/Feed.jsx
 import { useState, useEffect } from 'react';
 import { api, uploadImage } from '../api';
 import CommentSection from '../components/CommentSection';

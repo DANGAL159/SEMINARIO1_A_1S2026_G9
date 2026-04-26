@@ -1,3 +1,4 @@
+// frontend/src/pages/Register.jsx
 import { useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { api, uploadImage } from '../api';

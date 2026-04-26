@@ -1,3 +1,4 @@
+// frontend/src/pages/Profile.jsx
 import { useState } from 'react';
 import { api, uploadImage } from '../api';
 
