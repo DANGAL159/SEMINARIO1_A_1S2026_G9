@@ -1,80 +1,155 @@
 /* frontend/src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
 :root {
-  --bg-base: #0b1120; /* Azul muy oscuro/grisáceo */
-  --bg-panel: #1e293b; /* Gris pizarra */
-  --neon-blue: #38bdf8; /* Azul eléctrico */
-  --neon-glow: rgba(56, 189, 248, 0.4);
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --border-color: #334155;
+    --pip-green: #00ff41;
+    --pip-green-dim: #00aa2a;
+    --pip-green-dark: #006618;
+    --pip-green-glow: rgba(0, 255, 65, 0.5);
+    --pip-bg: #0a0a0a;
+    --pip-surface: #0d1a0d;
+    --pip-surface-light: #1a2e1a;
+    --pip-amber: #ffb800;
+    --pip-red: #ff3333;
+    
+    /* Variables compatibles con tu código anterior */
+    --bg-base: var(--pip-bg);
+    --border-color: var(--pip-green-dark);
+    --text-main: var(--pip-green);
+    --text-muted: var(--pip-green-dim);
+    --neon-blue: var(--pip-green); /* Reemplazamos el azul por verde pip-boy */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background-color: var(--bg-base);
-  color: var(--text-main);
-  font-family: system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
+    background-color: var(--pip-bg);
+    color: var(--pip-green);
+    font-family: 'Share Tech Mono', 'VT323', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+    animation: flicker 0.15s infinite;
 }
 
-/* Estilización global para paneles (formularios, posts) */
-form, .panel, nav {
-  background-color: var(--bg-panel);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+/* Efecto de monitor de tubo CRT (Global) */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 3px
+    );
 }
 
-/* Inputs con estilo terminal/hacker */
-input, textarea {
-  background-color: var(--bg-base);
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  padding: 0.75rem;
-  font-family: monospace; /* Toque técnico */
-  transition: all 0.3s ease;
+.crt-overlay::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    50% { opacity: 1; }
+    100% { opacity: 0.98; }
+}
+
+/* Rediseño de tus paneles actuales */
+.panel {
+    border: 2px solid var(--pip-green);
+    background: var(--pip-surface);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+    position: relative;
+}
+
+/* Sobreescritura global para Inputs */
+input[type="text"], input[type="password"], input[type="email"], textarea {
+    background: transparent;
+    border: 1px solid var(--pip-green-dark);
+    color: var(--pip-green);
+    font-family: 'Share Tech Mono', monospace;
+    padding: 10px;
+    outline: none;
+    width: 100%;
 }
 
 input:focus, textarea:focus {
-  outline: none;
-  border-color: var(--neon-blue);
-  box-shadow: 0 0 8px var(--neon-glow);
+    border-color: var(--pip-green);
+    box-shadow: 0 0 8px var(--pip-green-glow);
 }
 
-/* Botones Neón */
+input::placeholder, textarea::placeholder {
+    color: var(--pip-green-dark);
+}
+
+/* Sobreescritura global para Botones */
 button {
-  background-color: transparent;
-  color: var(--neon-blue);
-  border: 1px solid var(--neon-blue);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.2s ease-in-out;
+    background: var(--pip-surface);
+    border: 1px solid var(--pip-green-dark);
+    color: var(--pip-green-dim);
+    padding: 10px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: var(--neon-blue);
-  color: var(--bg-base);
-  box-shadow: 0 0 15px var(--neon-glow);
+button:hover, button:active {
+    background: var(--pip-surface-light);
+    color: var(--pip-green);
+    border-color: var(--pip-green);
+    text-shadow: 0 0 8px var(--pip-green-glow);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
 }
 
 button:disabled {
-  border-color: var(--text-muted);
-  color: var(--text-muted);
-  cursor: not-allowed;
-  box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--pip-green-dark);
+    color: var(--pip-green-dark);
 }
 
-/* Enlaces */
-a {
-  color: var(--neon-blue);
-  text-decoration: none;
+/* Estilos específicos para la navegación de App.jsx */
+.pip-nav {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--pip-green-dark);
+    padding-bottom: 0;
+    justify-content: center;
 }
 
-a:hover {
-  text-shadow: 0 0 8px var(--neon-glow);
+.pip-nav a {
+    text-decoration: none;
+    background: var(--pip-surface);
+    border: 1px solid var(--pip-green-dark);
+    border-bottom: none;
+    color: var(--pip-green-dim);
+    padding: 10px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    position: relative;
+    top: 2px;
+}
+
+.pip-nav a:hover {
+    background: var(--pip-surface-light);
+    color: var(--pip-green);
 }
