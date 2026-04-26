@@ -128,14 +128,14 @@ Se definieron los siguientes usuarios y roles en **AWS IAM** para garantizar seg
                           │ (MySQL/PostgreSQL DB)     │  
                           └───────────────────────────┘  
 
-                                         │  
-                                         ▼  
+                                               │  
+                                               ▼  
                           ┌───────────────────────────┐  
                           │           S3              │  
                           │ (Bucket semi1proyecto-g#) │  
                           └───────────────────────────┘  
-                                         ▲  
-                                         │  
+                                                ▲  
+                                                │  
                           ┌───────────────────────────┐  
                           │   API Gateway + Lambda    │  
                           │ (Carga de imágenes)       │  
