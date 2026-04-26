@@ -74,16 +74,27 @@ Se definieron los siguientes usuarios y roles en **AWS IAM** para garantizar seg
 
 # Caputras de pantalla  
 <img width="1907" height="896" alt="alb" src="https://github.com/user-attachments/assets/0d047f62-098e-4478-b67f-34d818b46e62" />  
-<img width="1919" height="679" alt="api-gateway" src="https://github.com/user-attachments/assets/6d2fca91-2d3a-4da5-a720-45343e5b4f78" />  
-<img width="1913" height="900" alt="bucket-s3" src="https://github.com/user-attachments/assets/cd735fde-8c96-4a4a-a5f1-7ea97bced42e" />  
-<img width="1919" height="903" alt="cloudfront" src="https://github.com/user-attachments/assets/3d92ff7e-957f-403b-9bc4-f014939e447f" />  
-<img width="1907" height="567" alt="cognito" src="https://github.com/user-attachments/assets/26ec729c-2a47-4b80-906f-8b545e9c0355" />  
+<br>
+<img width="1919" height="679" alt="api-gateway" src="https://github.com/user-attachments/assets/6d2fca91-2d3a-4da5-a720-45343e5b4f78" /> 
+<br>
+<img width="1913" height="900" alt="bucket-s3" src="https://github.com/user-attachments/assets/cd735fde-8c96-4a4a-a5f1-7ea97bced42e" /> 
+<br>
+<img width="1919" height="903" alt="cloudfront" src="https://github.com/user-attachments/assets/3d92ff7e-957f-403b-9bc4-f014939e447f" /> 
+<br>
+<img width="1907" height="567" alt="cognito" src="https://github.com/user-attachments/assets/26ec729c-2a47-4b80-906f-8b545e9c0355" /> 
+<br>
 <img width="1906" height="367" alt="ec2" src="https://github.com/user-attachments/assets/5f4c1f9e-1119-4753-801c-c3f566641bc7" />  
-<img width="1919" height="846" alt="IAM-roles" src="https://github.com/user-attachments/assets/5e9408c5-5ea8-4d0c-9c0f-4e2b4b6b6250" />  
-<img width="1917" height="712" alt="IAM-users" src="https://github.com/user-attachments/assets/ba6e3ead-8c75-4504-9963-d4a394183750" />  
-<img width="1919" height="801" alt="lambda" src="https://github.com/user-attachments/assets/dae7ca14-28c5-44f7-a3f2-f47064629a96" />  
-<img width="1889" height="897" alt="lex" src="https://github.com/user-attachments/assets/435322ca-c624-47a8-869c-d5967c921550" />  
-<img width="1891" height="389" alt="rds" src="https://github.com/user-attachments/assets/7eb75055-bfa5-46a5-a20b-b79e975865ff" />  
+<br>
+<img width="1919" height="846" alt="IAM-roles" src="https://github.com/user-attachments/assets/5e9408c5-5ea8-4d0c-9c0f-4e2b4b6b6250" /> 
+<br>
+<img width="1917" height="712" alt="IAM-users" src="https://github.com/user-attachments/assets/ba6e3ead-8c75-4504-9963-d4a394183750" /> 
+<br>
+<img width="1919" height="801" alt="lambda" src="https://github.com/user-attachments/assets/dae7ca14-28c5-44f7-a3f2-f47064629a96" /> 
+<br>
+<img width="1889" height="897" alt="lex" src="https://github.com/user-attachments/assets/435322ca-c624-47a8-869c-d5967c921550" />
+<br>
+<img width="1891" height="389" alt="rds" src="https://github.com/user-attachments/assets/7eb75055-bfa5-46a5-a20b-b79e975865ff" /> 
+<br>
 <img width="1917" height="536" alt="vpc" src="https://github.com/user-attachments/assets/f283900a-a380-4f0e-8c68-f15caf70d3ef" />  
 
 
