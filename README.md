@@ -1,4 +1,4 @@
-<img width="1545" height="757" alt="WhatsApp Image 2026-04-23 at 2 36 21 PM" src="https://github.com/user-attachments/assets/5a719f29-b3a8-4eff-b51a-bd79ff428be4" />
+
 # Manual Técnico
 
 ## Descripción de la Arquitectura
@@ -98,7 +98,8 @@ Se definieron los siguientes usuarios y roles en **AWS IAM** para garantizar seg
 <br>
 <img width="1917" height="536" alt="vpc" src="https://github.com/user-attachments/assets/f283900a-a380-4f0e-8c68-f15caf70d3ef" />  
 <br>
-
+<img width="1545" height="757" alt="WhatsApp Image 2026-04-23 at 2 36 21 PM" src="https://github.com/user-attachments/assets/5a719f29-b3a8-4eff-b51a-bd79ff428be4" />  
+<br>
 
 
 
