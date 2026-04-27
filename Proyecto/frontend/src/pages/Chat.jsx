@@ -12,7 +12,15 @@ export default function Chat({ user }) {
     const [mensaje, setMensaje] = useState('');
     const [chatLog, setChatLog] = useState([]);
     const [estaEscribiendo, setEstaEscribiendo] = useState(false);
+    
     const typingTimeoutRef = useRef(null);
+    // NUEVO: Referencia para el ancla del auto-scroll
+    const messagesEndRef = useRef(null);
+
+    // NUEVO: Efecto que hace scroll hacia abajo cada vez que cambia el chatLog
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [chatLog]);
 
     useEffect(() => {
         cargarAmigos();
@@ -160,6 +168,8 @@ export default function Chat({ user }) {
                                     </span>
                                 </div>
                             ))}
+                            {/* NUEVO: El ancla invisible al final de la lista de mensajes */}
+                            <div ref={messagesEndRef} />
                         </div>
 
                         <form onSubmit={enviarMensaje} style={{ display: 'flex', padding: '1rem', borderTop: '1px solid var(--border-color)' }}>
