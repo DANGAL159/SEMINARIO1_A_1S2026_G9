@@ -1,4 +1,3 @@
-// frontend/src/components/CommentSection.jsx
 import { useState, useEffect } from 'react';
 import { api } from '../api';
 
@@ -36,6 +35,16 @@ export default function CommentSection({ pubId, user }) {
         }
     };
 
+    // NUEVO: Función segura de traducción
+    const handleTraducirComentario = async (textoComentario) => {
+        try {
+            const { data } = await api.post('/translate', { texto: textoComentario });
+            alert(`EN: ${data.traducciones.en}\nFR: ${data.traducciones.fr}\nPT: ${data.traducciones.pt}`);
+        } catch (error) {
+            alert("Error al traducir el comentario");
+        }
+    };
+
     return (
         <div style={{ marginTop: '1rem', padding: '1rem', background: 'var(--bg-base)', borderRadius: '4px', border: '1px solid var(--border-color)' }}>
             <h4 style={{ margin: '0 0 1rem 0', color: 'var(--neon-blue)' }}>Comentarios</h4>
@@ -47,7 +56,23 @@ export default function CommentSection({ pubId, user }) {
                     comentarios.map(c => (
                         <div key={c.id} style={{ marginBottom: '0.5rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--border-color)' }}>
                             <strong style={{ color: 'var(--text-main)' }}>{c.nombre_completo}: </strong> 
-                            <span style={{ color: 'var(--text-muted)' }}>{c.texto}</span>
+                            <span style={{ color: 'var(--text-muted)', display: 'block', margin: '0.2rem 0' }}>{c.texto}</span>
+                            
+                            {/* NUEVO: Botón de traducción debajo del texto */}
+                            <button 
+                                onClick={() => handleTraducirComentario(c.texto)} 
+                                style={{ 
+                                    background: 'transparent', 
+                                    border: 'none', 
+                                    color: 'var(--pip-amber)', 
+                                    fontSize: '0.7rem', 
+                                    cursor: 'pointer',
+                                    padding: '0',
+                                    textDecoration: 'underline'
+                                }}
+                            >
+                                [Traducir Comentario]
+                            </button>
                         </div>
                     ))
                 )}
