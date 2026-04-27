@@ -1,4 +1,4 @@
-# 📖 Manual de Usuario - Plataforma SYS.SEMI-SOCIAL
+#  Manual de Usuario - Plataforma SYS.SEMI-SOCIAL
 
 Bienvenido al manual de usuario de **SYS.SEMI-SOCIAL**, una red social segura con estética de terminal (Cyberpunk/Retro-Tech) y potenciada por Inteligencia Artificial de AWS. A continuación, se detallan los módulos y flujos de uso de la plataforma.
 
@@ -7,7 +7,7 @@ Bienvenido al manual de usuario de **SYS.SEMI-SOCIAL**, una red social segura co
 ## 1. Registro e Identidad Biómetrica
 Para acceder a la red, todo usuario debe ser registrado en la base de datos central.
 
-![Pantalla de Registro](3.PNG)
+![Pantalla de Registro](images/3.PNG)
 
 1. Dirígete a la sección de **SYS.REGISTER**.
 2. Completa los campos obligatorios: Nombre, Correo Electrónico, DPI (13 dígitos) y Contraseña segura.
@@ -20,7 +20,7 @@ Para acceder a la red, todo usuario debe ser registrado en la base de datos cent
 ## 2. Acceso al Sistema (Login)
 La plataforma cuenta con un sistema de autenticación dual (MFA Biométrico).
 
-![Pantalla de Login](4.PNG)
+![Pantalla de Login](images/4.PNG)
 
 1. Ingresa a **SYS.LOGIN**.
 2. Selecciona tu método de autenticación en las pestañas superiores:
@@ -32,7 +32,7 @@ La plataforma cuenta con un sistema de autenticación dual (MFA Biométrico).
 ## 3. Generación de Contenido (Subir a la Red)
 Comparte imágenes y pensamientos con tu red de contactos.
 
-![Módulo de Publicación](5.png)
+![Módulo de Publicación](images/5.png)
 
 1. Ve a la sección **FEED** o utiliza el módulo de publicación rápida.
 2. Carga una memoria (imagen) desde tu dispositivo.
@@ -45,7 +45,7 @@ Comparte imágenes y pensamientos con tu red de contactos.
 ## 4. Feed Social, IA y Comentarios
 Explora el contenido de tu red, interactúa y supera las barreras del idioma.
 
-![Feed y Comentarios](6.PNG)
+![Feed y Comentarios](images/6.PNG)
 
 * **Visualización:** Observa las publicaciones ordenadas cronológicamente junto con los `[TAGS_IA]` detectados automáticamente.
 * **Traducción en Tiempo Real:** Si la descripción está en otro idioma, utiliza el botón `TRADUCIR DESCRIPCIÓN` para convertir el texto a tu idioma nativo utilizando AWS Translate.
@@ -56,8 +56,8 @@ Explora el contenido de tu red, interactúa y supera las barreras del idioma.
 ## 5. Gestión de Red de Amigos
 Descubre otros usuarios y administra tus conexiones.
 
-![Directorio y Red](7.PNG)
-![Gestión de Solicitudes](10.png)
+![Directorio y Red](images/7.PNG)
+![Gestión de Solicitudes](images/10.png)
 
 * **Sugerencias de Amistad:** El sistema te mostrará usuarios registrados que aún no están en tu red. Haz clic en `AGREGAR` para enviarles una solicitud.
 * **Solicitudes Recibidas:** Podrás revisar quién desea conectar contigo. Tienes las opciones de `ACEPTAR` o `RECHAZAR`.
@@ -68,7 +68,7 @@ Descubre otros usuarios y administra tus conexiones.
 ## 6. Comunicaciones (Chat Seguro)
 Inicia conversaciones cifradas en tiempo real con tus contactos aprobados.
 
-![Comunicaciones](11.PNG)
+![Comunicaciones](images/11.PNG)
 
 1. Navega a la pestaña **COMUNICACIONES**.
 2. Selecciona un usuario de tu lista de contactos en el panel lateral izquierdo.
@@ -80,7 +80,7 @@ Inicia conversaciones cifradas en tiempo real con tus contactos aprobados.
 ## 7. Edición de Perfil
 Mantén tu información actualizada bajo estrictos protocolos de seguridad.
 
-![Edición de Perfil](8.PNG)
+![Edición de Perfil](images/8.PNG)
 
 1. Ingresa a la pestaña **PERFIL**.
 2. Modifica tu nombre de usuario si lo deseas.
@@ -92,7 +92,7 @@ Mantén tu información actualizada bajo estrictos protocolos de seguridad.
 ## 8. Asistente Terminal Lex
 Un bot conversacional integrado para ayudarte a navegar o consultar información.
 
-![Terminal Lex](9.PNG)
+![Terminal Lex](images/9.PNG)
 
 1. Abre la ventana **LEX_TERMINAL**.
 2. Escribe tu comando o pregunta (por ejemplo, dudas sobre la facultad, instalaciones, etc.).
@@ -103,7 +103,7 @@ Un bot conversacional integrado para ayudarte a navegar o consultar información
 ## 9. Módulo de Juego (Arcade)
 Desafía a tu red a una partida de Totito (Tic-Tac-Toe).
 
-![Juego en Red](12.PNG)
+![Juego en Red](images/12.PNG)
 
 1. Dirígete a la pestaña **JUEGO**.
 2. Selecciona un desafiante de tu lista de contactos.
